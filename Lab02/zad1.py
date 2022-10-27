@@ -2,7 +2,7 @@ import pysftp
 
 hostname = "sigma.ug.edu.pl"
 username = "jwozniak"
-password = "R0n4ldinh0@01"
+password = "#####"
 
 with pysftp.Connection(host=hostname, username=username, password=password) as sftp:
     print("Połączono")
