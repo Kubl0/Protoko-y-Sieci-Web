@@ -1,32 +1,16 @@
-/* const http = require('http');
-const express = require('express');
-const fs = require('fs').promises;
+var app = require('express')();
+var bodyParser = require('body-parser');
 
-const port = 8080;
-const host = 'localhost';
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-const requestListener = function (req, res) {
-    fs.readFile(__dirname + "/index.html")
-        .then(contents => {
-            res.setHeader("Content-Type", "text/html");
-            res.writeHead(200);
-            res.end(contents);
-        })
-        .catch(err => {
-            res.writeHead(500);
-            res.end(err);
-            return;
-        })
-};
+app.post('/', function (req, res) {
+  console.log(req.body.x);
+  console.log(req.body.y);
+  res.end()
+});
 
-
-
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
-}); */
-
-
+app.listen(3000);
 
 class Plansza{
     constructor(){
@@ -37,7 +21,8 @@ class Plansza{
             for(var j=0;j<3;j++){
                 this.array[i][j]="-"
                 }
-}
+        }
+    }   
 
     printArray(){
         for(var i=0;i<3;i++){
@@ -46,35 +31,37 @@ class Plansza{
             }
             console.log()
         }
-}
+        console.log()
+    }
     cpMove(){
-        const x=Math.random(3)
-        const y=Math.random(3)
-        
+        let check = 0;
         do{
-            if(this.array[x][y]!="-"){
+            let x=Math.floor(Math.random()*3)
+            let y=Math.floor(Math.random()*3)
+            if(this.array[x][y]=="-"){
                 this.array[x][y]="O";
-                let check = 1;
-            }
-            else{
-                let check=0;
-                let x = Math.random(3);
-                let y = Math.random(3);
+                check = 1;
             }
         }while(check!=1)
+    }
+
+    humanMove(x,y){
+        
+        if(this.array[x][y]=='-'){
+            this.array
+        }
+
     }
 
 
 
 }
 
-const plansza = new Plansza
+const p = new Plansza()
 
-plansza.printArray()
-plansza.cpMove()
-plansza.printArray()
-
-
+p.printArray()
+console.log()
+p.printArray()
 
 
 
