@@ -1,0 +1,15 @@
+{
+  "name": "SSE-Client",
+  "version": "0.1.0",
+  "description": "Server-Sent Events Client",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "connect": "^3.7.0",
+    "eventlistener": "^0.0.1",
+    "eventsource": "^2.0.2",
+    "nodemon": "^2.0.20",
+    "serve-static": "^1.15.0"
+  }
+}
